@@ -95,7 +95,7 @@ def rescale_image(image, camera_intrinsics, output_resolution):
     output_resolution = np.floor(input_resolution * scale_final).astype(int)
 
     # first rescale the image so that it contains the crop
-    image = image.resize(output_resolution, resample=lanczos)
+    image = image.resize(tuple(output_resolution), resample=lanczos)
 
     # no offset here; simple rescaling
     camera_intrinsics = camera_matrix_of_crop(
